@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Book>
+
+<h1 class="col-md-12">Książki</h1>
+<div class="col-md-12">
+@foreach (var book in Model)
+{
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <div>Autor: @book.Author</div>
+            <div>Tytuł: @book.Title</div>
+            <div>ISBN: @book.ISBN</div>
+        <a asp-controller="Book" asp-action="Details" asp-route-bookId="@book.ISBN" class="btn btn-default">Szczegóły</a>
+        </div>
+
+    </div>
+}
+</div>
+<div col-md-12>
+    <a asp-controller="Book" asp-action="AddNew" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i> Dodaj nową książkę </a>
+</div>

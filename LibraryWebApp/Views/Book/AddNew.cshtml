@@ -1,0 +1,19 @@
+﻿@model Book
+
+    <form asp-action="AddNew" method="post">
+        <div>
+            <label asp-for="Title">Tytuł</label>
+            <input asp-for="Title" />
+        </div>
+        <div>
+            <label asp-for="Author">Autor</label>
+            <input asp-for="Author" />
+        </div>
+        <div>
+        <label asp-for="ISBN">ISBN</label>
+        <input asp-for="ISBN" />
+        </div>
+        <div>
+            <button class="btn btn-info" type="submit">Utwórz</button>
+        </div>
+    </form> 

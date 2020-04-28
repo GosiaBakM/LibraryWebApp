@@ -40,6 +40,16 @@ namespace LibraryWebApp.Models
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateBookList(Book modifiedBook, int ISBN)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Book book)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

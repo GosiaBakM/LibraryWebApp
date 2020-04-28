@@ -10,5 +10,7 @@ namespace LibraryWebApp.Models
         IEnumerable<Book> FindByTitle(string title);
         void Add(Book book);
         public bool SaveData();
+        public void UpdateBookList(Book modifiedBook, int ISBN);
+        public void Delete(Book book);
     }
 }

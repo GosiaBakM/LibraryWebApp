@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace LibraryWebApp.Models
@@ -8,7 +9,7 @@ namespace LibraryWebApp.Models
     {
         private readonly IJsonFileConnector jsonBookData;
         private List<Book> _allBooks;
-        public List<Book> AllBooks { get => _allBooks; }
+        public List<Book> AllBooks { get => _allBooks;}
 
         public JsonBookRepository(IJsonFileConnector jsonFileBookService)
         {
@@ -38,6 +39,17 @@ namespace LibraryWebApp.Models
 
         public IEnumerable<Book> FindByTitle(string bookTitle) =>
             jsonBookData.GetBooks().Where(b => b.Title == bookTitle);
+
+        public void UpdateBookList(Book modifiedBook, int ISBN) 
+        {
+            AllBooks.RemoveAll(b => b.ISBN == ISBN);
+            AllBooks.Add(modifiedBook);
+        }
+
+        public void Delete(Book book)
+        {
+            AllBooks.Remove(book);
+        }
     }
 }
 

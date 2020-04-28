@@ -56,7 +56,7 @@ namespace LibraryWebApp.Api
             }
         }
 
-        [HttpGet("search")]
+        [HttpGet("searchByTitle")]
         public ActionResult<IEnumerable<BookModel>> GetByTitle(string bookTitle)
         {
             if (string.IsNullOrEmpty(bookTitle)) return BadRequest("Could not use current title of book");
@@ -65,6 +65,23 @@ namespace LibraryWebApp.Api
                 var booksByTitle = _bookRepository.FindByTitle(bookTitle);
                 if (booksByTitle == null) return NotFound("Sorry the book with given title was not found");
                 return _mapper.Map<BookModel[]>(booksByTitle);
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Database connection error");
+            }
+        }
+
+
+        [HttpGet("searchByAuthor")]
+        public ActionResult<IEnumerable<BookModel>> GetByAuthor(string authorFullName)
+        {
+            if (string.IsNullOrEmpty(authorFullName)) return BadRequest("Could not use current author of the book");
+            try
+            {
+                var booksByAuthor = _bookRepository.FindByAuthor(authorFullName);
+                if (booksByAuthor == null) return NotFound("Sorry the book with given author was not found");
+                return _mapper.Map<BookModel[]>(booksByAuthor);
             }
             catch (Exception)
             {
@@ -88,7 +105,7 @@ namespace LibraryWebApp.Api
         private ActionResult<BookModel> AddBookToDataStore(BookModel bookModel)
         {
             var bookModelEndPoint = _linkGenerator.GetPathByAction($"{nameof(GetById)}", $"{nameof(BooksController)}",
-                                    new { ISBN = bookModel.isBorrowed });
+                                    new { ISBN = bookModel.IsBorrowed });
             if (bookModel == null) return BadRequest("Can not create new book");
             var newBook = _mapper.Map<Book>(bookModel);
             _bookRepository.Add(newBook);

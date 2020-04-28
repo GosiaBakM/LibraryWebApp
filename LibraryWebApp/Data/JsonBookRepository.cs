@@ -8,7 +8,7 @@ namespace LibraryWebApp.Models
     public class JsonBookRepository : IBookRepository
     {
         private readonly IJsonFileConnector jsonBookData;
-        private List<Book> _allBooks;
+        private readonly List<Book> _allBooks;
         public List<Book> AllBooks { get => _allBooks;}
 
         public JsonBookRepository(IJsonFileConnector jsonFileBookService)
@@ -49,6 +49,13 @@ namespace LibraryWebApp.Models
         public void Delete(Book book)
         {
             AllBooks.Remove(book);
+        }
+
+        public IEnumerable<Book> FindByAuthor(string authorFullName)
+        {
+            //var authorByGivenFullName = new Author { AuthorFullName = authorFullName };
+            //return AllBooks.Where(b => b.Author.Equals(authorByGivenFullName));
+            return AllBooks.Where(b => b.Author.FullName == authorFullName);
         }
     }
 }

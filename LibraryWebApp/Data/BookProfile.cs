@@ -7,7 +7,8 @@ namespace LibraryWebApp.Data
     {
         public BookProfile()
         {
-            this.CreateMap<Book, BookModel>().ReverseMap();        
+            this.CreateMap<Book, BookModel>().ReverseMap();                 
+            this.CreateMap<Author, AuthorModel>().ReverseMap();                 
         }
     }
 }

@@ -1,1 +1,74 @@
-[{"ISBN":99999,"Title":"Inferno","Author":"Dan Brown","Customer":{"CustomerId":1,"Name":"Jan","Surname":"Kowalski"},"isBorrowed":true},{"ISBN":12345,"Title":"Harry Potter i kamie\u0144 filozoficzny","Author":"J.K. Rowling","Customer":{"CustomerId":1,"Name":"Jan","Surname":"Kowalski"},"isBorrowed":false},{"ISBN":22222,"Title":"Mistrz i Ma\u0142gorzata","Author":"Michai\u0142 Bu\u0142hakow","Customer":{"CustomerId":1,"Name":"Jan","Surname":"Kowalski"},"isBorrowed":false},{"ISBN":23456,"Title":"fff","Author":"ffff","Customer":null,"isBorrowed":false},{"ISBN":12345,"Title":"Harry Potter i kamie\u0144 filozoficzny","Author":"J.K. Rowling","Customer":null,"isBorrowed":false}]
+﻿[
+  {
+    "ISBN": 99999,
+    "Title": "Inferno",
+    "Author": {
+      "AuthorId": 1,
+      "Name": "Dan",
+      "Surname": "Brown",
+      "FullName":  "Dan Brown"
+    },
+    "Customer": {
+      "CustomerId": 1,
+      "Name": "Jan",
+      "Surname": "Kowalski"
+    },
+    "isBorrowed": true
+  },
+  {
+    "ISBN": 12345,
+    "Title": "Harry Potter i kamie\u0144 filozoficzny",
+    "Author": {
+      "AuthorId": 2,
+      "Name": "J.K.",
+      "Surname": "Rowling",
+      "FullName": "J.K. Rowling"
+    },
+    "Customer": {
+      "CustomerId": 1,
+      "Name": "Jan",
+      "Surname": "Kowalski"
+    },
+    "isBorrowed": false
+  },
+  {
+    "ISBN": 22222,
+    "Title": "Mistrz i Ma\u0142gorzata",
+    "Author": {
+      "AuthorId": 3,
+      "Name": "Michaił",
+      "Surname": "Bułhakow",
+      "FullName": "Michaił Bułhakow"
+    },
+    "Customer": {
+      "CustomerId": 1,
+      "Name": "Jan",
+      "Surname": "Kowalski"
+    },
+    "isBorrowed": false
+  },
+  {
+    "ISBN": 23456,
+    "Title": "fff",
+    "Author": {
+      "AuthorId": 4,
+      "Name": "Maria",
+      "Surname": "Kot",
+      "FullName": "Maria Kot"
+    },
+    "Customer": null,
+    "isBorrowed": false
+  },
+  {
+    "ISBN": 12345,
+    "Title": "Harry Potter i kamie\u0144 filozoficzny",
+    "Author": {
+        "AuthorId": 5,
+        "Name": "J.K.",
+        "Surname": "Rowling",
+        "FullName": "J.K. Rowling"
+      },
+      "Customer": null,
+      "isBorrowed": false
+    }
+]

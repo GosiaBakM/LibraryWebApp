@@ -6,7 +6,7 @@ namespace LibraryWebApp.Models
     {
         IEnumerable<Book> GetAllBooks();
         Book FindByISBN(int ISBN);
-        Book FindByAuthor();
+        IEnumerable<Book> FindByAuthor(string AuthorFullName);
         IEnumerable<Book> FindByTitle(string title);
         void Add(Book book);
         public bool SaveData();

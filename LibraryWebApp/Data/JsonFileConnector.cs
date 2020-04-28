@@ -25,10 +25,8 @@ namespace LibraryWebApp.Models
 
         public IEnumerable<Book> GetBooks()
         {
-            using (var jsonFileReader = File.OpenText(JsonFileName))
-            {
-                return JsonSerializer.Deserialize<Book[]>(jsonFileReader.ReadToEnd());
-            }
+            using var jsonFileReader = File.OpenText(JsonFileName);
+            return JsonSerializer.Deserialize<Book[]>(jsonFileReader.ReadToEnd());
         }
 
         public bool SaveBooks(IEnumerable<Book> books)
@@ -37,6 +35,5 @@ namespace LibraryWebApp.Models
             File.WriteAllText(JsonFileName, dataToJSON);
             return true;
         }
-
     }
 }

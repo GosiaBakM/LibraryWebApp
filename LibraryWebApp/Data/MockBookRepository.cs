@@ -1,8 +1,6 @@
-﻿using Microsoft.CodeAnalysis.FlowAnalysis;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LibraryWebApp.Models
 {
@@ -14,8 +12,8 @@ namespace LibraryWebApp.Models
         {
             AllBooks = new List<Book>
             {
-                new Book{ISBN = 1, Title = "W pustyni i w puszczy", Author = "Henryk Sienkiewicz", Customer = "Jan Kowalski", isBorrowed = false },
-                new Book {ISBN = 2, Title = "Adam Mickiewicz", Author = "Pan Tadeusz", Customer = "Maria Nowak", isBorrowed = true }
+                new Book{ISBN = 1, Title = "W pustyni i w puszczy", Author = "Henryk Sienkiewicz", Customer = new Customer{ CustomerId = 1, Name = "Jan", Surname = "Kowalski"}, isBorrowed = false },
+                new Book {ISBN = 2, Title = "Adam Mickiewicz", Author = "Pan Tadeusz", Customer = new Customer{ CustomerId = 1, Name = "Jan", Surname = "Kowalski"}, isBorrowed = true }
             };
         }
 
@@ -30,16 +28,18 @@ namespace LibraryWebApp.Models
         }
 
         public Book FindByISBN(int bookISBN) => AllBooks.FirstOrDefault(b => b.ISBN == bookISBN);
-           
 
-        public Book FindByTitle()
+        public IEnumerable<Book> GetAllBooks() => AllBooks;
+
+        public IEnumerable<Book> FindByTitle(string title)
         {
             throw new NotImplementedException();
         }
 
-        //public IEnumerable<Book> Books { get; set; }
-
-        public IEnumerable<Book> GetAllBooks() => AllBooks;           
+        public bool SaveData()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

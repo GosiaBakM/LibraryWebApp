@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using LibraryWebApp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,8 +19,9 @@ namespace LibraryWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddSingleton<IBookRepository,MockBookRepository>();
-            services.AddScoped<IJsonFileBookService, JsonFileConnector>();
+            services.AddScoped<IJsonFileConnector, JsonFileConnector>();
             services.AddScoped<IBookRepository, JsonBookRepository>();
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
         }
 
@@ -36,6 +38,7 @@ namespace LibraryWebApp
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryWebApp.Controllers
 {
+
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
@@ -24,7 +25,7 @@ namespace LibraryWebApp.Controllers
             return View(books);
         }
 
-        public IActionResult Details(int bookISBN) 
+        public IActionResult Details(int bookISBN)
         {
             var bookByISBN = _bookRepository.FindByISBN(bookISBN);
             return View(bookByISBN);
@@ -40,9 +41,8 @@ namespace LibraryWebApp.Controllers
         public IActionResult AddNew(Book book)
         {
             _bookRepository.Add(book);
-            return Redirect("/Book/List");
+            _bookRepository.SaveData();
+            return Redirect($"/{nameof(Book)}/{nameof(List)}");
         }
-
-
     }
 }

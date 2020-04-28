@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LibraryWebApp.Models
 {
     public interface IBookRepository
     {
-        //void AddBook(Book book);
         IEnumerable<Book> GetAllBooks();
         Book FindByISBN(int ISBN);
         Book FindByAuthor();
-        Book FindByTitle();
+        IEnumerable<Book> FindByTitle(string title);
         void Add(Book book);
-
+        public bool SaveData();
     }
 }

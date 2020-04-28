@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWebApp", "LibraryWebApp\LibraryWebApp.csproj", "{417B58C4-DBCB-4C6A-8916-575F3C4008F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryWebApp", "LibraryWebApp\LibraryWebApp.csproj", "{417B58C4-DBCB-4C6A-8916-575F3C4008F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
